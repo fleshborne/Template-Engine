@@ -92,7 +92,6 @@ inquirer
     myTeam.push(manager);
     // create a function for newly appointed manager to add employees to their team.
     // refer back to read me homework when you used IF statements to grab github profile image
-    addEmployee();
     const addEmployee = () => {
       inquirer
         .prompt({
@@ -137,6 +136,7 @@ inquirer
           }
         });
     };
+    addEmployee();
   });
 
 // After the user has input all employees desired, call the `render` function (required
