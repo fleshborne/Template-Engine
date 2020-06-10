@@ -18,21 +18,25 @@ const engineerInsert = [
     type: "input",
     name: "name",
     message: "Insert name of Engineer here.",
+    default: "Binks",
   },
   {
     type: "input",
     name: "id",
     message: "Insert ID of Engineer here.",
+    default: 9001,
   },
   {
     type: "input",
     name: "email",
     message: "Insert contact info for Engineer here.",
+    default: "binks@email.com",
   },
   {
     type: "input",
     name: "gitHub",
     message: "Insert GitHub Profile for Engineer here.",
+    default: "Sith Lord Binks",
   },
 ];
 
@@ -41,21 +45,25 @@ const internInsert = [
     type: "input",
     name: "name",
     message: "Insert name of Intern here.",
+    default: "Billy",
   },
   {
     type: "input",
     name: "id",
     message: "Insert ID of Intern here.",
+    default: 420,
   },
   {
     type: "input",
     name: "email",
     message: "Insert contact info for Intern here.",
+    default: "billy@gowiththeflow.com",
   },
   {
     type: "input",
     name: "school",
     message: "Insert name of school for Intern here.",
+    default: "State University",
   },
 ];
 
@@ -65,21 +73,25 @@ inquirer
       type: "input",
       name: "managerName",
       message: "Insert name of Manager here.",
+      default: "Blake Thompson",
     },
     {
       type: "input",
       name: "managerId",
       message: "Insert ID of Manager here.",
+      default: "1",
     },
     {
       type: "input",
       name: "managerEmail",
       message: "Insert contact info for Manager here.",
+      default: "blake@email.com",
     },
     {
       type: "input",
       name: "managerOfficeNumber",
       message: "Insert Office Number of Manager here.",
+      default: "696-969-6969",
     },
   ])
   .then((answers) => {
