@@ -59,33 +59,89 @@ const internInsert = [
   },
 ];
 
-inquirer.prompt([
-  {
-    type: "input",
-    name: "managerName",
-    message: "Insert name of Engineer here.",
-  },
-  {
-    type: "input",
-    name: "managerId",
-    message: "Insert ID of Engineer here.",
-  },
-  {
-    type: "input",
-    name: "managerEmail",
-    message: "Insert contact info for Engineer here.",
-  },
-]);
+inquirer
+  .prompt([
+    {
+      type: "input",
+      name: "managerName",
+      message: "Insert name of Manager here.",
+    },
+    {
+      type: "input",
+      name: "managerId",
+      message: "Insert ID of Manager here.",
+    },
+    {
+      type: "input",
+      name: "managerEmail",
+      message: "Insert contact info for Manager here.",
+    },
+    {
+      type: "input",
+      name: "managerOfficeNumber",
+      message: "Insert Office Number of Manager here.",
+    },
+  ])
+  .then((answers) => {
+    const manager = new Manager(
+      answers.managerName,
+      answers.managerId,
+      answers.managerEmail,
+      answers.managerOfficeNumber
+    );
+    myTeam.push(manager);
+    // create a function for newly appointed manager to add employees to their team.
+    // refer back to read me homework when you used IF statements to grab github profile image
+    addEmployee();
+    const addEmployee = () => {
+      inquirer
+        .prompt({
+          type: "list",
+          name: "newTeamMember",
+          message: "Choose New Team member",
+          choices: ["Engineer", "Intern", "Team is full"],
+        })
+        .then((answers) => {
+          if (answers.newTeamMember === "Engineer") {
+            inquirer.prompt(engineerInsert).then((answers) => {
+              const engineer = new Engineer(
+                answers.name,
+                answers.id,
+                answers.email,
+                answers.gitHub
+              );
+              myTeam.push(engineer);
+              addEmployee();
+            });
+          } else if (answers.newTeamMember === "Intern") {
+            inquirer.prompt(internInsert).then((answers) => {
+              const intern = new Intern(
+                answers.name,
+                answers.id,
+                answers.email,
+                answers.school
+              );
+              myTeam.push(intern);
+              addEmployee();
+            });
+          } else {
+            console.log("Team is set, and ready to begin work!");
+            // calling render function to render myTeam with employees added
+            const data = render(myTeam);
+            // After you have your html, you're now ready to create an HTML file using the HTML
+            // returned from the `render` function. Now write it to a file named `team.html` in the
+            // `output` folder. You can use the variable `outputPath` above target this location.
+            // Hint: you may need to check if the `output` folder exists and create it if it
+            // does not.
+            fs.writeFileSync(outputPath, data);
+          }
+        });
+    };
+  });
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
-
-// After you have your html, you're now ready to create an HTML file using the HTML
-// returned from the `render` function. Now write it to a file named `team.html` in the
-// `output` folder. You can use the variable `outputPath` above target this location.
-// Hint: you may need to check if the `output` folder exists and create it if it
-// does not.
 
 // HINT: each employee type (manager, engineer, or intern) has slightly different
 // information; write your code to ask different questions via inquirer depending on
