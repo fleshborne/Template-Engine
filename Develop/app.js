@@ -9,10 +9,73 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
-
-
+// use this to push employees into your team array
+const myTeam = [];
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
+const engineerInsert = [
+  {
+    type: "input",
+    name: "name",
+    message: "Insert name of Engineer here.",
+  },
+  {
+    type: "input",
+    name: "id",
+    message: "Insert ID of Engineer here.",
+  },
+  {
+    type: "input",
+    name: "email",
+    message: "Insert contact info for Engineer here.",
+  },
+  {
+    type: "input",
+    name: "gitHub",
+    message: "Insert GitHub Profile for Engineer here.",
+  },
+];
+
+const internInsert = [
+  {
+    type: "input",
+    name: "name",
+    message: "Insert name of Intern here.",
+  },
+  {
+    type: "input",
+    name: "id",
+    message: "Insert ID of Intern here.",
+  },
+  {
+    type: "input",
+    name: "email",
+    message: "Insert contact info for Intern here.",
+  },
+  {
+    type: "input",
+    name: "school",
+    message: "Insert name of school for Intern here.",
+  },
+];
+
+inquirer.prompt([
+  {
+    type: "input",
+    name: "managerName",
+    message: "Insert name of Engineer here.",
+  },
+  {
+    type: "input",
+    name: "managerId",
+    message: "Insert ID of Engineer here.",
+  },
+  {
+    type: "input",
+    name: "managerEmail",
+    message: "Insert contact info for Engineer here.",
+  },
+]);
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
