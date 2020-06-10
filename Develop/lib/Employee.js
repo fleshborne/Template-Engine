@@ -11,14 +11,15 @@ class Employee {
   }
   //   write functions to display these constructor traits
   getName() {
-    return this.name;
+    let name = this.name;
+    return name;
   }
 
   getId() {
-    return this.id;
+    return id;
   }
   getEmail() {
-    return this.email;
+    return email;
   }
   getRole() {
     return "Employee";
