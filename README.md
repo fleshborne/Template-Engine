@@ -31,12 +31,12 @@ MIT
 
 # TESTS
 
-![running tests](https://i.imgur.com/fpvs8Zy.gifv)
-![running app](https://i.imgur.com/bK12SJu.gifv)
+![running tests](https://github.com/fleshborne/Template-Engine/blob/master/Assets/2020-06-10_18-26-42.gif)
+![running app](https://github.com/fleshborne/Template-Engine/blob/master/Assets/2020-06-10_18-27-33.gif)
 
 # SOURCES
 
-!(https://www.geeksforgeeks.org/node-js-fs-writefilesync-method/),
+https://www.geeksforgeeks.org/node-js-fs-writefilesync-method
 
 # CONTRIBUTIONS
 
