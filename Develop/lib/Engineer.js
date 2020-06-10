@@ -3,13 +3,13 @@
 // remember to use super here to pull parent's object data to fill in arguments.
 const Employee = require("./Employee");
 class Engineer extends Employee {
-  constructor(name, id, email, gitHub) {
+  constructor(name, id, email, github) {
     super(name, id, email);
-    this.gitHub = gitHub;
+    this.github = github;
   }
   // write functions to call the data
   getGithub() {
-    return this.gitHub;
+    return this.github;
   }
   // create getRole as described in test file
   getRole() {

@@ -1,6 +1,6 @@
 # PROJECT TITLE [![made-with-Markdown](https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg)](http://commonmark.org)
 
-Template Engine
+My Team Generator
 
 # TABLE OF CONTENTS
 
@@ -31,11 +31,12 @@ MIT
 
 # TESTS
 
-TBD
+![running tests](https://i.imgur.com/fpvs8Zy.gifv)
+![running app](https://i.imgur.com/bK12SJu.gifv)
 
 # SOURCES
 
-[TBD](TBD)
+!(https://www.geeksforgeeks.org/node-js-fs-writefilesync-method/),
 
 # CONTRIBUTIONS
 
