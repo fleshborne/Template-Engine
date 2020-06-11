@@ -1,6 +1,7 @@
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+const Warlock = require("./lib/Warlock");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
@@ -13,6 +14,44 @@ const render = require("./lib/htmlRenderer");
 const myTeam = [];
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
+const warlockInsert = [
+  {
+    type: "input",
+    name: "name",
+    message: "Insert name of Warlock here.",
+    default: "Wise Old Man",
+  },
+  {
+    type: "input",
+    name: "id",
+    message: "Insert ID of Warlock here.",
+    default: 710,
+  },
+  {
+    type: "input",
+    name: "email",
+    message: "Insert contact info for Warlock here.",
+    default: "Wisely@warlock.org",
+  },
+  {
+    type: "input",
+    name: "gitHub",
+    message: "Insert GitHub Profile for Warlock here.",
+    default: "Warlock",
+  },
+  {
+    type: "input",
+    name: "magic",
+    message: "Insert magic level for Warlock",
+    default: "99",
+  },
+  {
+    type: "input",
+    name: "hp",
+    message: "Insert Hp level for Warlock",
+    default: "99",
+  },
+];
 const engineerInsert = [
   {
     type: "input",
@@ -110,7 +149,7 @@ inquirer
           type: "list",
           name: "newTeamMember",
           message: "Choose New Team member",
-          choices: ["Engineer", "Intern", "Team is full"],
+          choices: ["Engineer", "Intern", "Warlock", "Team is full"],
         })
         .then((answers) => {
           if (answers.newTeamMember === "Engineer") {
@@ -122,6 +161,19 @@ inquirer
                 answers.gitHub
               );
               myTeam.push(engineer);
+              addEmployee();
+            });
+          } else if (answers.newTeamMember === "Warlock") {
+            inquirer.prompt(warlockInsert).then((answers) => {
+              const warlock = new Warlock(
+                answers.name,
+                answers.id,
+                answers.email,
+                answers.gitHub,
+                answers.magic,
+                answers.hp
+              );
+              myTeam.push(warlock);
               addEmployee();
             });
           } else if (answers.newTeamMember === "Intern") {
